@@ -13,7 +13,7 @@ public class StepTracker {
         }
     }
 
-    public void saveStep(int month, int step, int day) {
+    public void saveStep(int month, int day, int step) {
         if (step < 0) {
             System.out.println("Введите положительное число");
         } else {
@@ -24,6 +24,19 @@ public class StepTracker {
         }
     }
 
+    public void allStatic(int month) {
+        MonthData monthData = monthToData.get(month);
+        System.out.println("Выбирите какую информацию вы хоитте узнать за месяц");
+        maxStepMonth(month);
+        sumStepMonth(month);
+        averageStepMonth(month);
+        stepsInKilometers(month);
+        stepsToEnergy(month);
+        bestSeries(month);
+        getStepStatic(month);
+
+    }
+
     public void maxStepMonth(int monthNumber) {
         MonthData monthData = monthToData.get(monthNumber);
         int maxStepMonth = 0;
@@ -32,7 +45,7 @@ public class StepTracker {
                 maxStepMonth = step;
             }
         }
-        System.out.println("Максимальное количество шагов за " + monthNumber + " - "+ maxStepMonth);
+        System.out.println("Максимальное количество шагов за " + monthNumber + " - " + maxStepMonth);
     }
 
     public void sumStepMonth (int monthNumber) {
@@ -41,7 +54,7 @@ public class StepTracker {
         for (Integer step : monthData.month) {
             sumStep += step;
         }
-        System.out.printf("Общее количество шагов за %s - %s", monthNumber,sumStep);
+        System.out.println("Общее количество шагов за " + monthNumber + ": " + sumStep);
     }
 
     public void averageStepMonth(int monthNumber) {
@@ -50,8 +63,8 @@ public class StepTracker {
         for (Integer step : monthData.month) {
             sumStepMonth += step;
         }
-        double averageStep = (double) sumStepMonth / 30;
-        System.out.printf("Среднее количество шагов за %s - %s", monthNumber,averageStep);
+        int averageStep =  sumStepMonth / 30;
+        System.out.println("Среднее количество шагов за " + monthNumber + ": " + averageStep);
     }
 
     public void stepsInKilometers(int monthNumber) {
@@ -61,8 +74,8 @@ public class StepTracker {
             sumStepMonth += step;
         }
         double distanceInKilometers = converter.convertToKilometers(sumStepMonth);
-        System.out.printf("Шаги в километрах %s", distanceInKilometers );
-    }
+        System.out.println("Шаги в километрах " + distanceInKilometers );
+    } // Не считает Километры
 
     public void bestSeries(int monthNumber){
         MonthData monthData = monthToData.get(monthNumber);
@@ -72,7 +85,7 @@ public class StepTracker {
                 result ++;
             }
         }
-        System.out.printf("Лучшая серия %s дней", result);
+        System.out.println("Лучшая серия " + result + " дней");
     }
 
     public void stepsToEnergy(int monthNumber) {
@@ -82,17 +95,17 @@ public class StepTracker {
             sumStepMonth += step;
         }
         double kilocalories = converter.convertToEnergy(sumStepMonth);
-        System.out.printf("Сожжено килокалорий %s за %s шагов", kilocalories, sumStepMonth );
-    }
+        System.out.println("Сожжено килокалорий " +  kilocalories + " за " + sumStepMonth  + " шагов");
+    } // Не считает килаколории
 
     public void getStepStatic(int monthNumber) {
         MonthData monthData = monthToData.get(monthNumber);
         int dayNumber = 1;
         for (Integer step : monthData.month) {
-            System.out.printf("%s день : %s.", dayNumber, step);
+            System.out.println(dayNumber + " день : " + step);
             dayNumber ++;
         }
-    }
+    } // Неправильно выводит день
     void setStep(int step){
         if(step < 0){
             System.out.println("Введите положительное число");

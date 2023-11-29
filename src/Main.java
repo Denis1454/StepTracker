@@ -11,12 +11,22 @@ public class Main {
 
         while (userInput != 0) {
             if(userInput == 1) {
-                int addInList = scanner.nextInt();
-            } else if (userInput == 2) {
+                System.out.println("Выбирите месяц от 1 до 12,где 1 это Январь.");
+                int month = scanner.nextInt();
+                System.out.println("Выбирите день.");
+                int day = scanner.nextInt();
+                System.out.println("Введите количество шагов пройденных за день.");
                 int step = scanner.nextInt();
-                StepTracker.getStepStatic(step);
+                StepTracker.saveStep(month,day,step);
+            } else if (userInput == 2) {
+                System.out.println("Выбирите за какой месяц вы хотите узнать статистики.");
+                int month = scanner.nextInt();
+                StepTracker.allStatic(month);
             } else if (userInput == 3) {
-
+                System.out.println("Введите новое целевое значение шагов в день.");
+                int step = scanner.nextInt();
+                StepTracker.setStep(step);
+                System.out.println("Новое целевое значение шагов сохраненой.");
             } else if (userInput == 4) {
                 break;
             } // обаботка разных случаев
