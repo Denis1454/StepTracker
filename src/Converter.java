@@ -4,7 +4,7 @@ public class Converter {
 
     public Converter() {
         this.stepLength = stepLength;
-        this.stepEnergy = stepEnergy;
+        this.stepEnergy = stepEnergy;//
     }
 
     public double convertToKilometers(int step) {
