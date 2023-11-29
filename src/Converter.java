@@ -3,12 +3,11 @@ public class Converter {
     double stepEnergy;
 
     public Converter() {
-        this.stepLength = stepLength;
-        this.stepEnergy = stepEnergy;
+        this.stepLength = 75;
+        this.stepEnergy = 50;
     }
-
     public double convertToKilometers(int step) {
-        return step * stepLength / 10000;
+        return step * stepLength / 1000;
     }
 
     public double convertToEnergy(int step) {
