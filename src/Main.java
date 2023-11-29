@@ -38,6 +38,7 @@ public class Main {
         System.out.println("Программа завершена");
     }
 
+
     private static void printMenu() {
         System.out.println("1 - Ввести количество шагов за определённый день;");
         System.out.println("2 - Напечатать статистику за определённый месяц;");

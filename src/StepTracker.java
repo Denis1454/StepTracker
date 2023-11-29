@@ -34,6 +34,7 @@ public class StepTracker {
         stepsToEnergy(month);
         bestSeries(month);
         getStepStatic(month);
+
     }
 
     public void maxStepMonth(int monthNumber) {

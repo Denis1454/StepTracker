@@ -10,6 +10,7 @@ public class Converter {
     public double convertToKilometers(int step) {
         return step * stepLength / 10000;
     }
+
     public double convertToEnergy(int step) {
         return step * stepEnergy / 1000;
     }
