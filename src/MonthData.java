@@ -6,7 +6,7 @@ public class MonthData {
         for (int i = 0; i < 30; i++) {
             month.add(0);
         }
-    }
+    }//
     void addInList(int step,int day) {
         month.set(day - 1,step);
     }
