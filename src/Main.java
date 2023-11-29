@@ -21,7 +21,7 @@ public class Main {
             } else if (userInput == 2) {
                 System.out.println("Выбирите за какой месяц вы хотите узнать статистики.");
                 int month = scanner.nextInt();
-                StepTracker.allStatic(month);//
+                StepTracker.allStatic(month);
             } else if (userInput == 3) {
                 System.out.println("Введите новое целевое значение шагов в день.");
                 int step = scanner.nextInt();
