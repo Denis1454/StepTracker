@@ -81,13 +81,19 @@ public class StepTracker {
 
     public void bestSeries(int monthNumber) {
         MonthData monthData = monthToData.get(monthNumber);
+        int maxSeries = 0;
         int result = 0;
         for (Integer step : monthData.month) {
-            if (step >= stepTarget) {
+            if (stepTarget <= step) {
                 result++;
+            } else {
+                if (maxSeries < result) {
+                    maxSeries = result;
+                    result = 0;
+                }
             }
         }
-        System.out.println("Лучшая серия " + result + " дней");
+        System.out.println("Лучшая серия " + maxSeries + " дней");
     }
 
     public void stepsToEnergy(int monthNumber) {
@@ -107,7 +113,7 @@ public class StepTracker {
             System.out.println(dayNumber + " день : " + step);
             dayNumber++;
         }
-    } // Неправильно выводит день
+    }
 
     void setStep(int step) {
         if (step < 0) {
