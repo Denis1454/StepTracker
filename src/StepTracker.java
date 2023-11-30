@@ -77,7 +77,7 @@ public class StepTracker {
         }
         double distanceInKilometers = converter.convertToKilometers(sumStepMonth);
         System.out.println("Шаги в километрах " + distanceInKilometers);
-    } // Не считает Километры
+    } // TODO Не считает Километры
 
     public void bestSeries(int monthNumber) {
         MonthData monthData = monthToData.get(monthNumber);
